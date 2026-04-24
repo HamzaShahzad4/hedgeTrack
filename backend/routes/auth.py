@@ -1,4 +1,3 @@
-"""Auth API: register and login."""
 from flask import Blueprint, request, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 from itsdangerous import URLSafeTimedSerializer
@@ -9,13 +8,11 @@ auth_bp = Blueprint("auth", __name__, url_prefix="/api")
 
 
 def _make_token(user_id: int) -> str:
-    """Create a signed token containing user_id (for session)."""
     serializer = URLSafeTimedSerializer(config.SECRET_KEY)
     return serializer.dumps({"user_id": user_id}, salt="hedgetrack-auth")
 
 
 def _verify_token(token: str):
-    """Verify token and return user_id or None. Max age 7 days."""
     serializer = URLSafeTimedSerializer(config.SECRET_KEY)
     try:
         data = serializer.loads(token, salt="hedgetrack-auth", max_age=7 * 24 * 3600)
@@ -26,7 +23,6 @@ def _verify_token(token: str):
 
 @auth_bp.route("/register", methods=["POST"])
 def register():
-    """Register a new user. Expects JSON: { \"email\", \"password\" }."""
     data = request.get_json(silent=True)
     if not data:
         return jsonify({"error": "Request body must be JSON"}), 400
@@ -66,7 +62,6 @@ def register():
 
 @auth_bp.route("/login", methods=["POST"])
 def login():
-    """Log in. Expects JSON: { \"email\", \"password\" }. Returns user + token."""
     data = request.get_json(silent=True)
     if not data:
         return jsonify({"error": "Request body must be JSON"}), 400

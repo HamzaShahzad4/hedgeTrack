@@ -57,6 +57,7 @@ export default function Register() {
     <div className="auth-page">
       <div className="auth-card">
         <h1>Sign up</h1>
+        <p className="auth-subtitle">Create an account to track recruiting in one place.</p>
         {error && <div className="auth-error">{error}</div>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">

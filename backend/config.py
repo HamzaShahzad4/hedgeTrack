@@ -1,4 +1,3 @@
-"""Load configuration from environment. Do not commit .env."""
 import os
 from dotenv import load_dotenv
 

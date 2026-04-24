@@ -47,6 +47,7 @@ export default function Login() {
     <div className="auth-page">
       <div className="auth-card">
         <h1>Log in</h1>
+        <p className="auth-subtitle">Welcome back to HedgeTrack.</p>
         {error && <div className="auth-error">{error}</div>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
