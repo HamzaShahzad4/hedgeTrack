@@ -1,6 +1,6 @@
 # HedgeTrack
 
-CRM for students navigating investment banking and private equity recruitment. Built with **React** (frontend), **Flask** (backend), and **PostgreSQL** (database). See [PROJECT.md](./PROJECT.md) for full specifications and work plan.
+CRM for students navigating investment banking and private equity recruitment. Built with **React** (frontend), **Flask** (backend), and **PostgreSQL** (database).
 
 ## Requirements
 
@@ -66,21 +66,11 @@ npm install
 npm run dev
 ```
 
-Frontend runs at **http://localhost:5173**. It proxies `/api` to the Flask server.
-
-### 5. Test auth
-
-- Open http://localhost:5173/register and create an account.
-- Log in at http://localhost:5173/login.
-
----
 
 ## Project structure
 
 ```
 hedgeTrack/
-├── PROJECT.md          # Full spec, UI, DB, work plan
-├── README.md           # This file
 ├── database/
 │   └── schema.sql      # PostgreSQL schema (users, contacts, interactions, applications)
 ├── backend/            # Python Flask API
@@ -109,18 +99,6 @@ hedgeTrack/
             ├── Login.jsx
             └── Register.jsx
 ```
-
----
-
-## Version control and CI/CD
-
-- Use **Git** for version control and **GitHub** for the remote repo.
-- Push regularly so your work is backed up.
-- For CI/CD, you can add GitHub Actions later (e.g. run tests, lint) and host the frontend on **Vercel** (connects to your GitHub repo).
-
----
-
-## Work plan (from PROJECT.md)
 
 - **Week of Feb 23:** DB schema for users, React register/login + validation, Flask auth (hash passwords, API routes), backup video + notes.
 - **Week of Mar 2:** Checkpoint 1 demo; Figma → React dashboard + sidebar; Contacts table + FKs; GET/POST contacts APIs.
